@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: prova-argocd2
+  namespace: rhdh
+  labels:
+    app: prova-argocd2
+    app.kubernetes.io/component: backstage
+    backstage.io/kubernetes-id: rhdh
+spec:
+  - host: argocd.liquid-reply.net
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: prova-argocd2
+              port:
+                number: 80

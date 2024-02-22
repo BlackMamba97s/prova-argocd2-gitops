@@ -1,0 +1,16 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: prova-argocd2
+  labels:
+    app: prova-argocd2
+    app.kubernetes.io/component: backstage
+    backstage.io/kubernetes-id: rhdh
+spec:
+  ports:
+    - name: http-80
+      port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app: prova-argocd2
